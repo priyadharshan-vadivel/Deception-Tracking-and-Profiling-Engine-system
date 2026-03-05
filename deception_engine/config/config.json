@@ -1,0 +1,52 @@
+{
+  "profiler": {
+    "host": "0.0.0.0",
+    "port": 5000,
+    "api_key": "deception-engine-secret-key-2024",
+    "database_path": "/opt/deception_engine/database/profiler.db",
+    "log_path": "/var/log/deception_engine/profiler.log"
+  },
+  "network": {
+    "server1_ip": "192.168.56.103",
+    "decoy_ip": "192.168.56.106",
+    "profiler_ip": "192.168.56.200",
+    "attacker_subnet": "192.168.56.0/24"
+  },
+  "scoring": {
+    "decay_factor": 0.98,
+    "decay_interval_hours": 1,
+    "event_weights": {
+      "syn_scan": 5,
+      "port_sweep": 8,
+      "directory_enumeration": 6,
+      "failed_login": 3,
+      "brute_force": 15,
+      "honeytoken_access": 25,
+      "privilege_escalation": 20,
+      "c2_detection": 30,
+      "http_probe": 2,
+      "ssh_attempt": 4,
+      "fake_shell_command": 2,
+      "decoy_interaction": 10,
+      "sql_injection": 12,
+      "xss_attempt": 8
+    }
+  },
+  "thresholds": {
+    "suspicious": 20,
+    "redirect": 40,
+    "noise_injection": 70,
+    "forensic_snapshot": 100
+  },
+  "actions": {
+    "redirect_port": 80,
+    "decoy_port": 80,
+    "forensic_snapshot_dir": "/opt/deception_engine/forensics",
+    "noise_injection_enabled": true
+  },
+  "dashboard": {
+    "host": "0.0.0.0",
+    "port": 8080,
+    "refresh_interval_seconds": 5
+  }
+}
